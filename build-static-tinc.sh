@@ -10,7 +10,7 @@ mkdir -p /work/artifact
 cd $WORKSPACE
 git clone -b 1.1 https://github.com/gsliepen/tinc
 cd tinc
-CFLAGS="$CFLAGS -static" LDFLAGS="-static --static -no-pie -s" meson setup builddir -Dprefix=/usr/local/tincmm -Dbuildtype=minsize -Dlzo=enabled -Dlz4=enabled -Dtests=disabled -Ddefault_library=static --strip builddir
+CFLAGS="$CFLAGS -static" LDFLAGS="-static --static -no-pie -s" meson setup builddir -Dprefix=/usr/local/tincmm -Dbuildtype=minsize -Dlzo=enabled -Dlz4=enabled -Dtests=disabled -Ddefault_library=static --strip
 cd builddir
 sed -i 's@.so.3 @.a @g' ./build.ninja
 sed -i 's@.so @.a @g' ./build.ninja
